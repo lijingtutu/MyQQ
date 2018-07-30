@@ -49,6 +49,7 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(191, 19);
             this.txtID.TabIndex = 0;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_KeyPress);
             // 
             // txtPwd
@@ -60,6 +61,7 @@
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(191, 19);
             this.txtPwd.TabIndex = 1;
+            this.txtPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPwd_KeyPress);
             // 
             // linklblReg
             // 
@@ -82,6 +84,7 @@
             this.cboxRemember.TabIndex = 3;
             this.cboxRemember.Text = "记住密码";
             this.cboxRemember.UseVisualStyleBackColor = true;
+            this.cboxRemember.CheckedChanged += new System.EventHandler(this.cboxRemember_CheckedChanged);
             // 
             // cboxAutoLogin
             // 
@@ -92,6 +95,7 @@
             this.cboxAutoLogin.TabIndex = 4;
             this.cboxAutoLogin.Text = "自动登录";
             this.cboxAutoLogin.UseVisualStyleBackColor = true;
+            this.cboxAutoLogin.CheckedChanged += new System.EventHandler(this.cboxAutoLogin_CheckedChanged);
             // 
             // pboxMin
             // 
@@ -110,6 +114,7 @@
             this.pboxClose.Size = new System.Drawing.Size(27, 28);
             this.pboxClose.TabIndex = 6;
             this.pboxClose.TabStop = false;
+            this.pboxClose.Click += new System.EventHandler(this.pboxClose_Click);
             // 
             // pboxLogin
             // 
@@ -119,6 +124,7 @@
             this.pboxLogin.Size = new System.Drawing.Size(191, 33);
             this.pboxLogin.TabIndex = 7;
             this.pboxLogin.TabStop = false;
+            this.pboxLogin.Click += new System.EventHandler(this.pboxLogin_Click);
             // 
             // Frm_Login
             // 
