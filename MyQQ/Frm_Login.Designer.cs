@@ -74,6 +74,7 @@
             this.linklblReg.TabIndex = 2;
             this.linklblReg.TabStop = true;
             this.linklblReg.Text = "申请账号";
+            this.linklblReg.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblReg_LinkClicked);
             // 
             // cboxRemember
             // 
@@ -105,6 +106,7 @@
             this.pboxMin.Size = new System.Drawing.Size(27, 28);
             this.pboxMin.TabIndex = 5;
             this.pboxMin.TabStop = false;
+            this.pboxMin.Click += new System.EventHandler(this.pboxMin_Click);
             // 
             // pboxClose
             // 

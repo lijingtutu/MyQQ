@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CCWin;
 
 namespace MyQQ
 {
@@ -18,15 +19,15 @@ namespace MyQQ
         }
         private bool ValidateInput()
         {
-            if(txtID.Text.Trim()=="")
+            if (txtID.Text.Trim() == "")
             {
-                MessageBox.Show("请输入登录账号", "登录提示", MessageBoxButtons.OK, 
+                MessageBox.Show("请输入登录账号", "登录提示", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 txtID.Focus();
                 return false;
 
             }
-            else if (int.Parse(txtID.Text.Trim())>65535)
+            else if (int.Parse(txtID.Text.Trim()) > 65535)
             {
                 MessageBox.Show("请输入正确的登录账号", "登录提示", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -34,7 +35,7 @@ namespace MyQQ
                 return false;
 
             }
-            else if (txtID.Text.Length>5 && txtPwd.Text.Trim()=="")
+            else if (txtID.Text.Length > 5 && txtPwd.Text.Trim() == "")
             {
                 MessageBox.Show("请输入密码", "登录提示", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -46,7 +47,7 @@ namespace MyQQ
         }
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(char.IsDigit(e.KeyChar) || (e.KeyChar=='\r') || (e.KeyChar=='\b'))
+            if (char.IsDigit(e.KeyChar) || (e.KeyChar == '\r') || (e.KeyChar == '\b'))
             {
                 e.Handled = false;
             }
@@ -59,7 +60,7 @@ namespace MyQQ
             if (ValidateInput())                                        //调用自定义方法验证用户输入
             {
                 string sql = "select count(*) from tb_User where ID=" + int.Parse(txtID.Text.Trim())
-        + " and Pwd = '" + txtPwd.Text.Trim() + "'";                    //定义查询SQL语句
+                    + " and Pwd = '" + txtPwd.Text.Trim() + "'";                    //定义查询SQL语句
                 int num = dataOper.ExecSQL(sql);
                 if (num == 1)                                           //验证通过
                 {
@@ -90,6 +91,7 @@ namespace MyQQ
                     MessageBox.Show("输入的用户名或密码有误！", "登录提示", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
+                DataOperator.connection.Close();
             }
         }
 
@@ -115,7 +117,7 @@ namespace MyQQ
         {
             ValidateInput();
             //根据号码查询其密码、记住密码和自动登录字段的值
-            string sql = "select Pwd,Remember,AutoLogin from tb_User where ID=" + 
+            string sql = "select Pwd,Remember,AutoLogin from tb_User where ID=" +
                 int.Parse(txtID.Text.Trim()) + "";
             DataSet ds = dataOper.GetDataSet(sql);                      //查询结果存储到数据集中
             if (ds.Tables[0].Rows.Count > 0)                            //判断是否存在该用户
@@ -133,9 +135,20 @@ namespace MyQQ
             }
         }
 
+        private void linklblReg_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Frm_Register frmRegister = new Frm_Register();
+            frmRegister.Show();
+        }
+
+        private void pboxMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void pboxClose_Click(object sender, EventArgs e)
         {
-            DataOperator.connection.Dispose();
+            Application.ExitThread();
         }
     }
 }

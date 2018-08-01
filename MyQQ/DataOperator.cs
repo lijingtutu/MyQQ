@@ -13,9 +13,9 @@ namespace MyQQ
     /// </summary>
     class DataOperator
     {
-        //数据库连接字符串
+        ///数据库连接字符串
         private static string connString = @"Data Source=李晶;Database=db_MyQQ;User ID=sa;Pwd=888888;";
-        //数据库连接对象
+        ///数据库连接对象
         public static SqlConnection connection = new SqlConnection(connString);
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace MyQQ
             }
             finally
             {
-                connection.Close();                                 //关闭数据库连接
+                //connection.Close();                                 //关闭数据库连接
             }
             return num;                                         //返回结果中的第一行第一列
         }
@@ -55,7 +55,7 @@ namespace MyQQ
             if (connection.State == ConnectionState.Closed)         //如果当前数据库连接处于关闭状态
                 connection.Open();                                  //打开数据库连接
             int result = command.ExecuteNonQuery();             //执行SQL语句
-            connection.Close();                                 //关闭数据库连接
+            //connection.Close();                                 //关闭数据库连接
             return result;                                      //返回受影响的行数
         }
 
