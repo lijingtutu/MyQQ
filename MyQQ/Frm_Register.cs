@@ -7,14 +7,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 
 namespace MyQQ
 {
-    public partial class Frm_Register : Form
+    public partial class Frm_Register : Office2007Form
     {
         DataOperator dataOper = new DataOperator();
         public Frm_Register()
         {
+            this.EnableGlass = false;
             InitializeComponent();
         }
 

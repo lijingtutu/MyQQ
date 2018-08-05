@@ -66,5 +66,19 @@ namespace MyQQ
             dataAdapter.Fill(dataSet);
             return dataSet;
         }
+
+        /// <summary>
+        /// 执行SQL语句，并返回SqlDataReader对象
+        /// </summary>
+        /// <param name="sql">SQL语句</param>
+        /// <returns>SqlDataReader对象</returns>
+        public SqlDataReader GetDataReader(string sql)
+        {
+            SqlCommand command = new SqlCommand(sql, connection);
+            if (connection.State == ConnectionState.Closed)
+                connection.Open();            
+            SqlDataReader dataReader = command.ExecuteReader();
+            return dataReader;
+        }
     }
 }

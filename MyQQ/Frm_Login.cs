@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using CCWin;
+using DevComponents.DotNetBar;
 
 namespace MyQQ
 {
-    public partial class Frm_Login : Form
+    public partial class Frm_Login : Office2007Form
     {
         DataOperator dataOper = new DataOperator();
         public Frm_Login()
         {
+            this.EnableGlass = false;
             InitializeComponent();
         }
         private bool ValidateInput()

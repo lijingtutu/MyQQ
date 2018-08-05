@@ -7,6 +7,9 @@ namespace MyQQ
 {
     class PublicClass
     {
+        /// <summary>
+        /// 当前登录用户ID
+        /// </summary>
         public static int loginID;
     }
 }

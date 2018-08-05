@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Main));
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("我的好友", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("陌生人", System.Windows.Forms.HorizontalAlignment.Left);
             this.imglistHead = new System.Windows.Forms.ImageList(this.components);
             this.imglistSmallHead = new System.Windows.Forms.ImageList(this.components);
             this.imglistMessage = new System.Windows.Forms.ImageList(this.components);
@@ -52,6 +54,7 @@
             this.tsbtnUpdateFriendList = new System.Windows.Forms.ToolStripButton();
             this.tsbtnMessageReading = new System.Windows.Forms.ToolStripButton();
             this.tsbtnExit = new System.Windows.Forms.ToolStripButton();
+            this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pboxHead)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxMin)).BeginInit();
@@ -341,6 +344,13 @@
             // 
             this.lvFriend.BackColor = System.Drawing.Color.OldLace;
             this.lvFriend.ContextMenuStrip = this.cmsFriendList;
+            listViewGroup3.Header = "我的好友";
+            listViewGroup3.Name = "listViewGroup1";
+            listViewGroup4.Header = "陌生人";
+            listViewGroup4.Name = "listViewGroup2";
+            this.lvFriend.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup3,
+            listViewGroup4});
             this.lvFriend.LargeImageList = this.imglistHead;
             this.lvFriend.Location = new System.Drawing.Point(0, 114);
             this.lvFriend.MultiSelect = false;
@@ -401,6 +411,7 @@
             this.tsbtnInfo.Name = "tsbtnInfo";
             this.tsbtnInfo.Size = new System.Drawing.Size(23, 22);
             this.tsbtnInfo.Text = "个人信息";
+            this.tsbtnInfo.Click += new System.EventHandler(this.tsbtnInfo_Click);
             // 
             // tsbtnSearchFriend
             // 
@@ -409,6 +420,7 @@
             this.tsbtnSearchFriend.Name = "tsbtnSearchFriend";
             this.tsbtnSearchFriend.Size = new System.Drawing.Size(52, 22);
             this.tsbtnSearchFriend.Text = "查找";
+            this.tsbtnSearchFriend.Click += new System.EventHandler(this.tsbtnSearchFriend_Click);
             // 
             // tsbtnUpdateFriendList
             // 
@@ -418,6 +430,7 @@
             this.tsbtnUpdateFriendList.Name = "tsbtnUpdateFriendList";
             this.tsbtnUpdateFriendList.Size = new System.Drawing.Size(23, 22);
             this.tsbtnUpdateFriendList.Text = "更新好友列表";
+            this.tsbtnUpdateFriendList.Click += new System.EventHandler(this.tsbtnUpdateFriendList_Click);
             // 
             // tsbtnMessageReading
             // 
@@ -427,6 +440,7 @@
             this.tsbtnMessageReading.Name = "tsbtnMessageReading";
             this.tsbtnMessageReading.Size = new System.Drawing.Size(23, 22);
             this.tsbtnMessageReading.Text = "系统消息";
+            this.tsbtnMessageReading.Click += new System.EventHandler(this.tsbtnMessageReading_Click);
             // 
             // tsbtnExit
             // 
@@ -436,6 +450,12 @@
             this.tsbtnExit.Name = "tsbtnExit";
             this.tsbtnExit.Size = new System.Drawing.Size(23, 22);
             this.tsbtnExit.Text = "退出";
+            this.tsbtnExit.Click += new System.EventHandler(this.tsbtnExit_Click);
+            // 
+            // styleManager1
+            // 
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2016;
+            this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
             // 
             // Frm_Main
             // 
@@ -451,12 +471,14 @@
             this.Controls.Add(this.pboxMin);
             this.Controls.Add(this.pboxClose);
             this.Controls.Add(this.pboxHead);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(20, 20);
             this.Name = "Frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "QQ";
+            this.Load += new System.EventHandler(this.Frm_Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboxHead)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxMin)).EndInit();
@@ -492,5 +514,6 @@
         private System.Windows.Forms.ToolStripButton tsbtnUpdateFriendList;
         private System.Windows.Forms.ToolStripButton tsbtnMessageReading;
         private System.Windows.Forms.ToolStripButton tsbtnExit;
+        private DevComponents.DotNetBar.StyleManager styleManager1;
     }
 }
